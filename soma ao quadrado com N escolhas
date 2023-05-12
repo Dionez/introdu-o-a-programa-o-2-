@@ -1,0 +1,25 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro contagemDeAlteracoes = 1
+		real somatorio = 0.0 , x
+		inteiro numeroDeSomas
+
+		escreva("Informe quantas variaveis o usuário deseja:\n")
+		leia(numeroDeSomas)
+		
+		enquanto(contagemDeAlteracoes <= numeroDeSomas)
+		{
+			escreva("Entre com o valor de x",contagemDeAlteracoes,"^2: \n")
+			leia(x)
+
+			somatorio += (x*x)
+			contagemDeAlteracoes++
+			
+		}
+		escreva("O resultado de x1 +...x",contagemDeAlteracoes - 1 ," é: ",somatorio)
+		
+	}
+}
