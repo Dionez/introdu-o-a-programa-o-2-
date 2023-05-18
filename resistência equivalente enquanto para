@@ -1,0 +1,43 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro numDeResistencias, contagemDeInteracoes = 1
+		real somatorioR = 0.0, req, r
+		
+		
+		escreva("Fornça o numero de resistencias do circuito\n")
+		leia(numDeResistencias)
+
+		
+		enquanto(numDeResistencias <=0) 
+
+		{
+			escreva("Valor negativo ou nulo.\n")
+			escreva("Forneça um valor positivo e não nulo.\n")
+			leia(numDeResistencias)
+			
+		} 
+
+
+		faca 
+		{
+			escreva ("Entre com o valor de r",contagemDeInteracoes,"\n")
+			leia(r)
+			enquanto(r <= 0)
+			{
+				escreva("Forneça um valor não nulo.\n")
+				leia(r)
+			}
+			
+			somatorioR+= 1.0/r
+			contagemDeInteracoes++
+		
+			
+		}enquanto(contagemDeInteracoes <= numDeResistencias)
+
+		req  =  1/(somatorioR)
+
+		escreva("A resistencia equivalente é ",req," Ω ")
+	}
+}
