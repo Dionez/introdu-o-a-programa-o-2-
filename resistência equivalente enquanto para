@@ -6,20 +6,13 @@ programa
 		real somatorioR = 0.0, req, r
 		
 		
-		escreva("Fornça o numero de resistencias do circuito\n")
-		leia(numDeResistencias)
+		faca
+		{
+			escreva("Fornça o numero de resistencias do circuito\n")
+			leia(numDeResistencias)
+		}enquanto(numDeResistencias <= 0)
 
 		
-		enquanto(numDeResistencias <=0) 
-
-		{
-			escreva("Valor negativo ou nulo.\n")
-			escreva("Forneça um valor positivo e não nulo.\n")
-			leia(numDeResistencias)
-			
-		} 
-
-
 		faca 
 		{
 			escreva ("Entre com o valor de r",contagemDeInteracoes,"\n")
