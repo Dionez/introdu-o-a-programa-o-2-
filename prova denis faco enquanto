@@ -1,0 +1,98 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+	
+	funcao inicio()
+	{
+		
+		const real EULER = 2.718
+		real coeficienteB, temperaturaInicial, temperaturaFinal, resistenciaIncial, resistenciaFinal, temperaturaInicialEmKelvin, temperaturaFinalEmKelvin, aux
+		real razaoEntreResistencias,resistenciaNoIntervalo
+		real resistenciaFornecida
+		real novaRazaoEntreResistencias
+		real novaTemperaturaFinal
+		logico resistenciainicialInvalida, resistenciaFinalInvalida,resistenciaForaDoIntervalo
+
+		
+		escreva("Forneça uma temperatura [°C] inicial.\n")
+		leia(temperaturaInicial)
+		
+		faca
+		{
+			escreva("Forneça a resistencia dessa temperatura.\n")
+			leia(resistenciaIncial)
+			resistenciainicialInvalida = resistenciaIncial <= 0 
+			
+			se(resistenciainicialInvalida)
+			{
+				escreva("O programa não adimite resistencias nulas ou negativas. Corrija o valor!!\n\n")
+			}
+		}enquanto(resistenciainicialInvalida)
+
+
+		escreva("Forneça uma temperatura [°C] final.\n")
+		leia(temperaturaFinal)
+
+		faca
+		{
+			escreva("Forneça a resistencia dessa temperatura.\n")
+			leia(resistenciaFinal)
+			resistenciaFinalInvalida = resistenciaFinal <= 0 
+			
+			se(resistenciaFinalInvalida)
+			{
+				escreva("O programa não adimite resistencias nulas ou negativas. Corrija o valor!!\n\n")
+			}
+		}enquanto(resistenciaFinalInvalida)
+
+
+		temperaturaInicialEmKelvin = temperaturaInicial + 273.15
+		temperaturaFinalEmKelvin = temperaturaFinal + 273.15
+
+		
+	//calculo de B
+
+		razaoEntreResistencias = resistenciaFinal / resistenciaIncial
+		//coeficienteB = (mat.potencia(temperaturaInicial, -1.0) + mat.logaritmo(razaoEntreResistencias,EULER) ) / mat.potencia(temperaturaFinal, -1.0)
+		coeficienteB = mat.logaritmo(razaoEntreResistencias,EULER) / ((1/temperaturaFinalEmKelvin) - (1 / temperaturaInicialEmKelvin))
+		coeficienteB = mat.valor_absoluto(coeficienteB)
+
+
+
+		escreva("O coeficiente B será: ",mat.arredondar(coeficienteB, 2))
+
+
+	//calculando uma temperatura qualquer
+
+	 	se(resistenciaIncial > resistenciaFinal)
+		{
+			aux = resistenciaIncial 
+			resistenciaIncial = resistenciaFinal 
+			resistenciaFinal = aux
+		}
+	 	 	
+	 	escreva("\nForneça uma resistencia qualquer dentro do intervalo de [",resistenciaIncial," , ",resistenciaFinal,"] para que se obtenha uma nova temperatura final.")
+		escreva("\nOBS: Temperatura inicial será igual a ",temperaturaInicial,"\n")
+
+	
+		faca
+		{
+			leia(resistenciaNoIntervalo)
+			resistenciaForaDoIntervalo = resistenciaNoIntervalo < resistenciaIncial ou resistenciaNoIntervalo > resistenciaFinal 
+			se(resistenciaForaDoIntervalo)
+			{
+				escreva("Resistencia fora do intervalo [",resistenciaIncial,",",resistenciaFinal,"].\n")
+				escreva("Forneça uma resistencia correta.\n")
+			}
+			
+		}enquanto(resistenciaForaDoIntervalo)
+
+		novaRazaoEntreResistencias = resistenciaNoIntervalo / resistenciaIncial
+
+		temperaturaFinalEmKelvin = 1/(1/temperaturaInicialEmKelvin - 1/coeficienteB * mat.logaritmo(novaRazaoEntreResistencias,EULER))
+		//temperaturaFinalEmKelvin = coeficienteB / (mat.logaritmo(novaRazaoEntreResistencias,EULER) + coeficienteB / temperaturaInicialEmKelvin)
+		
+		escreva("A nova temperatura será ",mat.arredondar(temperaturaFinalEmKelvin, 2)," K ou ",mat.arredondar(temperaturaFinalEmKelvin - 273.15, 2)," °C.")
+		
+	}
+}
