@@ -7,7 +7,7 @@ programa
 		
 		const real EULER = 2.718
 		real coeficienteB, temperaturaInicial, temperaturaFinal, resistenciaIncial, resistenciaFinal, temperaturaInicialEmKelvin, temperaturaFinalEmKelvin, aux
-		real razaoEntreResistencias,resistenciaNoIntervalo
+		real razaoEntreResistencias,resistenciaNoIntervalo, resistenciaMaior, resistenciaMenor
 		real resistenciaFornecida
 		real novaRazaoEntreResistencias
 		real novaTemperaturaFinal
@@ -64,24 +64,30 @@ programa
 
 	//calculando uma temperatura qualquer
 
-	 	se(resistenciaIncial > resistenciaFinal)
+	 	se(resistenciaIncial < resistenciaFinal)
 		{
-			aux = resistenciaIncial 
-			resistenciaIncial = resistenciaFinal 
-			resistenciaFinal = aux
+			resistenciaMenor = resistenciaIncial 
+			resistenciaMaior = resistenciaFinal
+			
+			
+		}
+		senao
+		{
+			resistenciaMenor = resistenciaFinal
+			resistenciaMaior = resistenciaIncial
 		}
 	 	 	
-	 	escreva("\nForneça uma resistencia qualquer dentro do intervalo de [",resistenciaIncial," , ",resistenciaFinal,"] para que se obtenha uma nova temperatura final.")
+	 	escreva("\nForneça uma resistencia qualquer dentro do intervalo de [",resistenciaMenor," , ",resistenciaMaior,"] para que se obtenha uma nova temperatura final.")
 		escreva("\nOBS: Temperatura inicial será igual a ",temperaturaInicial,"\n")
 
 	
 		faca
 		{
 			leia(resistenciaNoIntervalo)
-			resistenciaForaDoIntervalo = resistenciaNoIntervalo < resistenciaIncial ou resistenciaNoIntervalo > resistenciaFinal 
+			resistenciaForaDoIntervalo = resistenciaNoIntervalo < resistenciaMenor ou resistenciaNoIntervalo > resistenciaMaior 
 			se(resistenciaForaDoIntervalo)
 			{
-				escreva("Resistencia fora do intervalo [",resistenciaIncial,",",resistenciaFinal,"].\n")
+				escreva("Resistencia fora do intervalo [",resistenciaMenor,",",resistenciaMaior,"].\n")
 				escreva("Forneça uma resistencia correta.\n")
 			}
 			
@@ -89,8 +95,7 @@ programa
 
 		novaRazaoEntreResistencias = resistenciaNoIntervalo / resistenciaIncial
 
-		temperaturaFinalEmKelvin = 1/(1/temperaturaInicialEmKelvin - 1/coeficienteB * mat.logaritmo(novaRazaoEntreResistencias,EULER))
-		//temperaturaFinalEmKelvin = coeficienteB / (mat.logaritmo(novaRazaoEntreResistencias,EULER) + coeficienteB / temperaturaInicialEmKelvin)
+		temperaturaFinalEmKelvin = coeficienteB / (mat.logaritmo(novaRazaoEntreResistencias,EULER) + coeficienteB / temperaturaInicialEmKelvin)
 		
 		escreva("A nova temperatura será ",mat.arredondar(temperaturaFinalEmKelvin, 2)," K ou ",mat.arredondar(temperaturaFinalEmKelvin - 273.15, 2)," °C.")
 		
