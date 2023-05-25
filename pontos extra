@@ -1,0 +1,48 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+	funcao inicio()
+	{
+		const real EULER = 2.718 
+		real temperaturaIncial,temperaturaFinal, resistencia,resistenciaIncial = 1.0,resistenciaFinal = 1.0
+		inteiro i
+		real temperaturaInicialEmKelvin,temperaturaFinalEmKelvin
+		real razaoEntreResistencias,coeficienteB
+		cadeia resistenciaAtual = "R0"
+		
+		/*escreva("Forneça o valor da temperatura inicial em °C.\n")
+		leia(temperaturaIncial)
+		escreva("Forneça o valor da temperatura final em °C.\n")
+		leia(temperaturaFinal)*/
+
+
+		para(i = 1; i<=2; i++)
+		{
+			
+			faca
+			{
+				escreva(i,"\n")
+				se(i ==2)
+				{
+					resistenciaAtual ="R"
+				}
+				escreva("Forneça o valor de ",resistenciaAtual,"\n")
+				se(i <= 1)
+				{
+					leia(resistenciaIncial)
+					
+					
+				}
+				senao se(i <= 2)
+				{
+					leia(resistenciaFinal)
+					
+				}
+			
+			}enquanto(resistenciaIncial <=0 ou resistenciaFinal <=0)
+			
+	
+
+		}
+	}
+}
