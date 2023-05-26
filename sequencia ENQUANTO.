@@ -1,0 +1,24 @@
+programa
+{
+	inclua biblioteca Matematica
+ --> mat
+	
+	funcao inicio()
+	{
+		const inteiro QUANTIDADE_DE_NUMEROS = 3
+		inteiro i = 1
+		real decremento = 0.2
+		real valorDaSequencia, valorInicial = 9.5
+		
+
+
+		valorDaSequencia = valorInicial 
+
+		enquanto(i<=QUANTIDADE_DE_NUMEROS)
+		{
+			escreva(i,"º valor da sequencia: ",mat.arredondar(valorDaSequencia, 1),"\n")
+			valorDaSequencia-= 0.2
+			i++
+		} 
+	}
+}
