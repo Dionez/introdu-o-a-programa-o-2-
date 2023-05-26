@@ -1,0 +1,74 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		const inteiro NUMERO_DE_OPERACOES = 10
+		inteiro codicoDaOperacao, i = 1.0
+		logico codicoDaOperacaoInvalido
+		real numero
+		
+		
+		
+		escreva("Tabuada de um número e operação qualquer.\nMenu:\n")
+		escreva("1 - soma \n2 - subtração \n3 - divisão \n4 - multiplicação \n5 - sair\n")
+
+
+		escreva("Selecione uma operação\n")
+		leia(codicoDaOperacao)
+		codicoDaOperacaoInvalido = codicoDaOperacao <= 0 ou codicoDaOperacao > 4
+
+		se(codicoDaOperacaoInvalido)
+		{
+			escreva("Valor inválido, forneça um valor do menu de operações.\n\n")
+			retorne
+		}
+
+		escreva("Qual número para gerar a tabuada?\n")
+		leia(numero)
+		 escolha(codicoDaOperacao)
+		 {
+		 	caso 1:
+		 	enquanto(i <= NUMERO_DE_OPERACOES)
+		 	{
+		 		escreva(i," + ",numero," = ",i + numero,"\n" )
+		 		i++
+		 	}
+		 	pare
+
+
+			caso 2:
+			enquanto(i <= NUMERO_DE_OPERACOES)
+			{
+				escreva(i," - ",numero," = ",i - numero,"\n" )
+				i++
+			}
+			pare
+
+			caso 3:
+			enquanto(i <= NUMERO_DE_OPERACOES)
+			{
+				escreva(i," / ",numero," = ",i / numero,"\n" )
+				i++
+			}
+			pare
+
+			caso 4:
+			enquanto(i <= NUMERO_DE_OPERACOES)
+			{
+				escreva(i," * ",numero," = ",i * numero,"\n" )
+				i++
+			}
+			pare
+
+			caso contrario: 
+			escreva("Valor inválido, forneça um valor do menu de operações.\n\n")
+			retorne
+			
+
+		 	
+		 }
+		
+	
+	}
+}
