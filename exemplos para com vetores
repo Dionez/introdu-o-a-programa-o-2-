@@ -1,0 +1,50 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		const inteiro NUMERO_DE_ELEMENTOS = 3
+		real vetor[NUMERO_DE_ELEMENTOS]
+		inteiro i
+		
+		para(i = 0; i<NUMERO_DE_ELEMENTOS; i++)
+		{
+			escreva("Entre com o ",i+1,"º elemento do vetor\n")	
+			leia(vetor[i])
+		}
+		escreva("\nOs 3 elementos do vetor\n")
+		para(i = 0; i<NUMERO_DE_ELEMENTOS; i++)
+		{
+			escreva("vetor[",i,"] = ",vetor[i],"\n")
+		}
+	}
+}
+
+
+
+programa
+{
+	
+	funcao inicio()
+	{
+		real vetor[3]
+		inteiro i
+
+		para(i = 2; i>-1; i--)
+		{
+			escreva("Entre com o ",i+1,"º elemento do vetor\n")	
+			leia(vetor[i])
+		}
+
+		escreva("\nOs 3 elementos do vetor:\n")
+		escreva("vetor[",2,"] = ",vetor[2],"\n","vetor[",1,"] = ",vetor[1],"\n","vetor[",0,"] = ",vetor[0])
+
+		escreva("\nOs 3 elementos do vetor\n")
+		para(i = 2; i>-1; i--)
+		{
+			escreva("vetor[",i,"] = ",vetor[i],"\n")
+		}
+	}
+}
+
+
