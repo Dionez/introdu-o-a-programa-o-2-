@@ -1,0 +1,43 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+	
+	funcao inicio()
+	{
+		
+		inteiro numeroDeTermos, i = 1
+		logico numeroDeTermosInvalidos
+		real j = 1.0, valorDeS = 0 ,pi
+		
+		
+		escreva("Forneça o número de termos\n")
+		
+		faca
+		{
+			leia(numeroDeTermos)
+			numeroDeTermosInvalidos = numeroDeTermos <= 0			
+			se(numeroDeTermosInvalidos)
+			{
+				escreva("Forneça um valor positivo e diferente de 0.\n")
+			}
+
+		}enquanto(numeroDeTermosInvalidos)
+
+
+		faca
+		{
+			i++
+			valorDeS+= 1/(mat.potencia(j,3)) - 1/((mat.potencia(j + 2,3)))
+			j+= 2
+
+			
+		}enquanto(i <= numeroDeTermos)
+
+		pi =  mat.raiz(valorDeS * 32.0, 3)	
+
+		escreva("O valor de π: ",pi)
+
+		
+
+	}
+}
