@@ -1,0 +1,73 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		const inteiro NUMERO_DE_LINHAS = 2, NUMERO_DE_COLUNAS = 22
+		real matriz[NUMERO_DE_LINHAS][NUMERO_DE_COLUNAS]={{53.06,43.49,35.89,29.80,24.89,17.67,15.00,12.80,10.98,9.46,8.18,7.11,6.20,5.43,4.77,4.21,3.73,3.31,2.95,2.64,2.36,2.12},{-10.0,-5.0,0.0,5.0,10.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0,55.0,60.0,65.0,70.0,75.0,80.0,85.0,90.0,95.0,100.0}}
+		inteiro i,j, opcao = 1
+
+
+		escreva("Linha 1: Valores das resistências\nLinha 2: Valores das temperaturas.\n\n")
+		para(i = 0; i < NUMERO_DE_LINHAS; i++)
+		{
+			para(j = 0; j < NUMERO_DE_COLUNAS; j++)
+			{
+				escreva(matriz[i][j], " ")
+			}
+			escreva("\n")
+		}
+
+		enquanto(opcao >= 1 ou opcao <= 3)
+		{
+			escreva("Escolha umas das opcões a seguir\n")
+			escreva("\n1 - Alterar a matriz de resistencias e temperaturas \n2 - Mostrar tipo de termistor: NTC ou PTC \n3 - Calcular a temperatura \n4 - Sair\n")
+			leia(opcao)
+//opcão 1
+			se(opcao == 1)
+			{
+				escreva("Alterar a matriz de resistencias e temperaturas\nForneça os novos valores para as resistencias e temperaturas\n")
+				para(i = 0; i < NUMERO_DE_LINHAS; i++)
+				{
+					para(j = 0; j < NUMERO_DE_COLUNAS; j++)
+					{
+						escreva("[",i+1,"][",j+1,"] = ")
+						leia(matriz[i][j])
+						
+						se(matriz[0][j] <= 0)
+						{
+
+							faca
+							{
+								escreva("Forneça uma resistencia positiva e diferente de 0\n")
+								escreva("[",i+1,"][",j+1,"] = ")
+								leia(matriz[i][j])
+							}enquanto(matriz[0][j] <= 0)
+						}	
+					}
+				}
+				escreva("Os novos valores da matriz\n")
+				para(i = 0; i < NUMERO_DE_LINHAS; i++)
+				{
+					para(j = 0; j < NUMERO_DE_COLUNAS; j++)
+					{
+						escreva(matriz[i][j], " ")
+					}
+					escreva("\n")
+					opcao = 1
+				}
+			}
+
+			se(opcao == 2)
+			{
+				
+			}
+
+
+			se(opcao == 3)
+			{
+				
+			}
+		}
+	}
+}				
